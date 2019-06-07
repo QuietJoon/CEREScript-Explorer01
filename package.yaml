@@ -1,0 +1,66 @@
+name:                CEREScript-Explorer01
+version:             0.1.0.0
+github:              "QuietJoon/CEREScript-Explorer01"
+license:             BSD3
+author:              "YongJoon Joe"
+maintainer:          "developer@quietjoon.net"
+copyright:           "2019 YongJoon Joe"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# synopsis:            Short description of your package
+# category:            Web
+
+description:         Please see the README on GitHub at <https://github.com/QuietJoon/CEREScript-Explorer01#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- parallel
+- async
+- criterion
+
+library:
+  source-dirs: src
+
+executables:
+  CEREScript-Explorer01:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -O3
+    # - -prof
+    # - -fprof-auto
+    #- --enable-profiling
+    #- --enable-library-profiling
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - CEREScript-Explorer01
+  #CEREScript-Explorer01-NTh:
+  #  main:                Main.hs
+  #  source-dirs:         app
+  #  ghc-options:
+  #  - -O3
+  #  # - -prof
+  #  # - -fprof-auto
+  #  #- --enable-profiling
+  #  #- --enable-library-profiling
+  #  - -threaded
+  #  - -rtsopts
+  #  - -with-rtsopts=-N1
+  #  dependencies:
+  #  - CEREScript-Explorer01
+
+tests:
+  CEREScript-Explorer01-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - CEREScript-Explorer01
