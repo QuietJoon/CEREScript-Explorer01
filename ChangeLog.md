@@ -3,6 +3,10 @@ Changelog for CEREScript-Explorer01
 
 ## Unreleased changes
 
+### Change
+
+* Change `show A{..}` function as parallel
+
 
 ## [0.2.1.0] -- 2019-06-08
 
