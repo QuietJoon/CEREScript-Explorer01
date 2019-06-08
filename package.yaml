@@ -1,5 +1,5 @@
 name:                CEREScript-Explorer01
-version:             0.1.0.0
+version:             0.2.0.0
 github:              "QuietJoon/CEREScript-Explorer01"
 license:             BSD3
 author:              "YongJoon Joe"
@@ -20,6 +20,7 @@ dependencies:
 - parallel
 - async
 - criterion
+- stm
 
 library:
   source-dirs: src
@@ -34,31 +35,6 @@ executables:
     # - -fprof-auto
     #- --enable-profiling
     #- --enable-library-profiling
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - CEREScript-Explorer01
-  #CEREScript-Explorer01-NTh:
-  #  main:                Main.hs
-  #  source-dirs:         app
-  #  ghc-options:
-  #  - -O3
-  #  # - -prof
-  #  # - -fprof-auto
-  #  #- --enable-profiling
-  #  #- --enable-library-profiling
-  #  - -threaded
-  #  - -rtsopts
-  #  - -with-rtsopts=-N1
-  #  dependencies:
-  #  - CEREScript-Explorer01
-
-tests:
-  CEREScript-Explorer01-test:
-    main:                Spec.hs
-    source-dirs:         test
-    ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
