@@ -71,16 +71,6 @@ I get numbers from RTS `-s` option.
 * With the parallel interpreter, it shows lower performance when assigning more core
 * Parallel interpreter is little faster than the serial version, but not so fast than expected
 
-## Investigation with ThreadScope
-
-### Serial version (-N4, single)
-
-Use single core, but GC runs parallel.
-
-### Parallel version (-N4, async)
-
-Use multi core in some part
-
 ## Questions
 
 I know that the parallel version is not so efficient by assigned core number.
@@ -96,3 +86,26 @@ Yes, I applied `-threaded` option, but `print` function seems not be parallel.
 
 When I assign more core to the program, the performance becomes slower.
 I can't understand, why it shows like that way.
+
+## Investigation with ThreadScope
+
+### Serial version (-N4, single)
+
+Use single core, but GC runs parallel.
+
+### Parallel version (-N4, async)
+
+Use multi core in some part, but not all part.
+
+## Fix
+
+### For Serial version
+
+Optimize RTS option that limiting assigned number of core for GC.
+
+### For Parallel version
+
+Arithmetic calculation was not finished in each thread.
+Therefore, the arithmetic calculation was executed in single thread.
+
+To avoid this situation, add `seq` when return the `Env`.
