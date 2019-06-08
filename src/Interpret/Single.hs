@@ -5,7 +5,7 @@ module Interpret.Single where
 import Script
 
 
-runS :: Env -> Script F -> Context Env
+runS :: Env -> Script F -> IO Env
 runS env E = return env
 runS env A{..} = do
   preEnv <- runS env aNext

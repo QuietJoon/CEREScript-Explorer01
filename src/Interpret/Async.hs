@@ -7,7 +7,7 @@ import Control.Concurrent.Async
 import Script
 
 
-runSA :: Env -> Script F -> Context Env
+runSA :: Env -> Script F -> IO Env
 runSA env E = return env
 runSA env A{..} = do
   preEnv <- runSA env aNext

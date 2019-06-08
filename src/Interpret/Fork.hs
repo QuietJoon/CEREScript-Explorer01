@@ -7,7 +7,7 @@ import Control.Concurrent.STM (TVar, atomically, newTVarIO, readTVar, retry, wri
 
 import Script
 
-runSF :: Env -> Script F -> Context Env
+runSF :: Env -> Script F -> IO Env
 runSF env E = return env
 runSF env A{..} = do
   preEnv <- runSF env aNext

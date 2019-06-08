@@ -2,8 +2,7 @@
 
 module Script where
 
-type F = Env -> Context Env
-type Context = IO
+type F = Env -> IO Env
 type Env = Int
 
 data Script a
@@ -28,5 +27,5 @@ makeRepeatA :: F -> Int -> Script F
 makeRepeatA _ 0 = E
 makeRepeatA f num = A f $ makeRepeatA f (num-1)
 
-mulEnv :: Env -> Env -> Context Env
+mulEnv :: Env -> Env -> IO Env
 mulEnv m e = return $ m * e
