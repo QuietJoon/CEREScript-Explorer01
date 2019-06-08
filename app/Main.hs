@@ -1,9 +1,5 @@
 module Main where
 
--- import Control.Parallel
--- import Control.Parallel.Strategies
-import Control.Concurrent.Async
-
 import Bench.Criterion
 import Interpret.Single
 import Interpret.Async
@@ -11,6 +7,7 @@ import Interpret.Async
 import Script
 
 import System.Environment (getArgs)
+
 
 rNum :: Int
 rNum = 1048576

@@ -9,13 +9,13 @@ data Script a
   = B
   { branchCondition :: Env -> Int
   , branchScripts :: [Script a]
-  , bNext :: (Script a)
+  , bNext :: Script a
   }
   | A { inst :: a, aNext :: Script a}
   | E -- End of Script, No more next instruction
 
 instance Show (Script a) where
-  show B{..} = "B [" ++ (concatMap show branchScripts) ++ "]"
+  show B{..} = "B [" ++ concatMap show branchScripts ++ "]"
   --show A{..} = "A <" ++ show aNext ++ ">"
   show A{..} = show aNext
   show E = "|E|"
