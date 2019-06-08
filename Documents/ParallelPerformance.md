@@ -71,6 +71,16 @@ I get numbers from RTS `-s` option.
 * With the parallel interpreter, it shows lower performance when assigning more core
 * Parallel interpreter is little faster than the serial version, but not so fast than expected
 
+## Investigation with ThreadScope
+
+### Serial version (-N4, single)
+
+Use single core, but GC runs parallel.
+
+### Parallel version (-N4, async)
+
+Use multi core in some part
+
 ## Questions
 
 I know that the parallel version is not so efficient by assigned core number.
