@@ -25,6 +25,7 @@ main = do
   print aScript
   args <- getArgs
   result <- case args of
+    ("evalScript":_) -> return 0
     ("single":_) -> runS  1 aScript
     ("async":_)  -> runSA 1 aScript
     -- ("fork":_)   -> runSF 1 aScript
