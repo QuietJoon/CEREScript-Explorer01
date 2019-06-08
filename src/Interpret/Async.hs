@@ -11,7 +11,7 @@ runSA :: Env -> Script F -> IO Env
 runSA env E = return env
 runSA env A{..} = do
   preEnv <- runSA env aNext
-  inst preEnv
+  seq preEnv (inst preEnv)
 runSA env B{..} = do
   preEnv <- runSA env bNext
   results <- mapConcurrently (runSA preEnv) branchScripts

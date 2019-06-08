@@ -4,6 +4,13 @@ Changelog for CEREScript-Explorer01
 ## Unreleased changes
 
 
+## [0.2.1.0] -- 2019-06-08
+
+### Change
+
+* Evaluate a instruction strictly
+
+
 ## [0.2.0.0] -- 2019-06-08
 
 ### Change
