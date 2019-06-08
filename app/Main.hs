@@ -8,18 +8,19 @@ import Script
 
 import System.Environment (getArgs)
 
-
+-- Define length of branches for parallel load
 rNum :: Int
 rNum = 1048576
-
+-- Make multi-branched script
 branchedScript :: Script F
 branchedScript = B (\_ -> 1) (map (repeatA rNum) [2,3,5,7,11,13,17,23]) E
+-- A script for test
 aScript :: Script F
 aScript = A (mulEnv 11) $ branchedScript { bNext = (A (mulEnv 13) E)}
 
 main :: IO ()
 main = do
-  print aScript
+  print aScript -- For evaluating before interpreting
   args <- getArgs
   result <- case args of
     ("evalScript":_) -> return 0
